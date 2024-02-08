@@ -4,6 +4,7 @@ require('dotenv').config()
 
 const projectRoutes = require('./routes/project')
 const languageRoutes = require('./routes/language')
+const userRoutes = require('./routes/user')
 
 const mongoose = require('mongoose')
 
@@ -12,6 +13,7 @@ const port = process.env.PORT || 5000
 app.use(express.json())
 app.use('/api/project', projectRoutes)
 app.use('/api/language', languageRoutes)
+app.use('/api/user', userRoutes)
 
 app.get('/', (request, response) => {
   response.send('Welcome GANDEL DEV')

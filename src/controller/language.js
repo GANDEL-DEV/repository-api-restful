@@ -27,7 +27,7 @@ const getLanguageById = asyncHandler(async (request, response) => {
   } catch (error) {
     response.status(error.status || 500).json(
       {
-        message: error.message || 'Internal Server Error---'
+        message: error.message || 'Internal Server Error'
       }
     )
   }
