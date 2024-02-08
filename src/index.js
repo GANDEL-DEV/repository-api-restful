@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 require('dotenv').config()
+const cors = require('cors')
 
 const projectRoutes = require('./routes/project')
 const languageRoutes = require('./routes/language')
@@ -9,6 +10,8 @@ const userRoutes = require('./routes/user')
 const mongoose = require('mongoose')
 
 const port = process.env.PORT || 5000
+
+app.use(cors())
 
 app.use(express.json())
 app.use('/api/project', projectRoutes)
@@ -32,6 +35,3 @@ mongoose.connect(
 app.listen(port, () => {
   console.log(`The GANDEL API is running in the ${port} port`)
 })
-
-const renderExternalIP = process.env.RENDER_EXTERNAL_IP
-console.log(`External: ${renderExternalIP}`)
